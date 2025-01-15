@@ -1,0 +1,26 @@
+1.- Crear los archivos:
+    AutoresForm.jsx dentro de frontend\src\components\Formularios
+    AutorList dentro de frontend\src\components\Listados
+    {basarse en los archivos de libros}
+
+      1.1.- Agregar la ruta dentro de App.jsx con el Path "/agregar-autores"
+      1.2.- Agregar el botón dentro de frontend\src\assets\Menuitems.jsx con iconos
+       importados de React Icons
+
+    ESTEBAN
+
+2.- Crear los archivos:
+    EditorialesForm.jsx dentro de frontend\src\components\Formularios
+    EditoralsList.jsx dentro de frontend\src\components\Listados
+    {basarse en los archivos de Categorias}
+
+      2.1.- Agregar la ruta dentro de App.jsx con el Path "/agregar-editoriales"
+      2.2.- Agregar el botón dentro de frontend\src\assets\Menuitems.jsx con iconos
+       importados de React Icons
+
+    DIEGO
+
+
+*EL SCHEMA DE LA BASE DE DATOS ESTA DENTRO DE servidor\src\db\database.sql
+*LA BASE DE DATOS YA NO ES LA DE JUAN
+*Y YA ALV PONGANSE A JALAR ALV
