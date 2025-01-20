@@ -1,6 +1,8 @@
 import tailwindConfigImage from "../assets/taildwindconfig.png";
 import homepage from "../assets/homepage.png";
 
+import Botones from "./components/ButtonsComponent";
+
 export default function Documentacion() {
     return (
         <div className="mt-10 pt-5">
@@ -24,7 +26,7 @@ export default function Documentacion() {
 
                         <p className="mt-6">
                             React te permite crear interfaces de usuario a partir de piezas individuales llamadas componentes. Crea tus propios
-                            componentes de React como , luego, combínalos en pantallas, páginas y aplicaciones completas.
+                            componentes de React, luego, combínalos en pantallas, páginas y aplicaciones completas.
                         </p>
                     </div>
                 </section>
@@ -85,6 +87,7 @@ export default function Documentacion() {
                                 <li>Mysql2</li>
                                 <li>nodemon</li>
                                 <li>zod</li>
+                                <li>Clever Cloud</li>
                             </ul>
                         </div>
 
@@ -149,9 +152,9 @@ export default function Documentacion() {
                             <div className="size-1/3 m-7">
                                 <h3 className="text-center text-lg font-semibold italic text-blue-900 underline">express</h3>
                                 <p className="mt-6">
-                                    Express es una infraestructura de aplicaciones web Node.js mínima y flexible que proporciona un conjunto sólido de características 
-                                    para las aplicaciones web y móviles, con miles de métodos de programa de utilidad HTTP y middleware a su disposición, la 
-                                    creación de una API sólida es rápida y sencilla, Express proporciona una delgada capa de características de aplicación web 
+                                    Express es una infraestructura de aplicaciones web Node.js mínima y flexible que proporciona un conjunto sólido de características
+                                    para las aplicaciones web y móviles, con miles de métodos de programa de utilidad HTTP y middleware a su disposición, la
+                                    creación de una API sólida es rápida y sencilla, Express proporciona una delgada capa de características de aplicación web
                                     básicas, que no ocultan las características de Node.js que tanto ama y conoce.
                                 </p>
                             </div>
@@ -159,8 +162,8 @@ export default function Documentacion() {
                             <div className="size-1/3 m-7">
                                 <h3 className="text-center text-lg font-semibold italic text-blue-900 underline">MYSQL</h3>
                                 <p className="mt-6">
-                                    MySQL es la base de datos de código abierto más popular del mercado. Según DB-Engines, MySQL se clasifica como la segunda 
-                                    base de datos más popular, detrás de Oracle Database. MySQL potencia muchas de las aplicaciones más accesibles, 
+                                    MySQL es la base de datos de código abierto más popular del mercado. Según DB-Engines, MySQL se clasifica como la segunda
+                                    base de datos más popular, detrás de Oracle Database. MySQL potencia muchas de las aplicaciones más accesibles,
                                     como Facebook, Twitter, Netflix, Uber, Airbnb, Shopify y Booking.com.
                                 </p>
                             </div>
@@ -168,21 +171,32 @@ export default function Documentacion() {
                             <div className="size-1/3 m-7">
                                 <h3 className="text-center text-lg font-semibold italic text-blue-900 underline">nodemon</h3>
                                 <p className="mt-6">
-                                    Nodemon supervisa los archivos de tu proyecto y aplica las actualizaciones instantaneas reiniciando tu 
+                                    Nodemon supervisa los archivos de tu proyecto y aplica las actualizaciones instantaneas reiniciando tu
                                     aplicación eliminando los tediosos reinicios manuales acelerando notablemente el desarrollo
                                     de esta web.
                                 </p>
                             </div>
                         </div>
                     </section>
-                    <div className="m-8 justify-center size-1/3">
-                        <h3 className="text-center text-lg font-semibold italic text-blue-900 underline">ZOD</h3>
-                        <p className="mt-6">
-                            Zod es una biblioteca de declaración y validación de esquemas que utiliza TypeScript como base. Utilizo el término "esquema" 
-                            para referirme en términos generales a cualquier tipo de datos, desde un stringobjeto anidado simple hasta uno complejo.
-                        </p>
+
+                    <div className="flex m-7">
+                        <div className="m-8 justify-center size-1/3">
+                            <h3 className="text-center text-lg font-semibold italic text-blue-900 underline">ZOD</h3>
+                            <p className="mt-6">
+                                Zod es una biblioteca de declaración y validación de esquemas que utiliza TypeScript como base. Utilizo el término "esquema"
+                                para referirme en términos generales a cualquier tipo de datos, desde un stringobjeto anidado simple hasta uno complejo.
+                            </p>
+                        </div>
+                        <div className="m-8 justify-center size-1/3">
+                            <h3 className="text-center text-lg font-semibold italic text-blue-900 underline">Clever Cloud</h3>
+                            <p className="mt-6">
+                            //Agregar info
+                            </p>
+                        </div>
                     </div>
                 </div>
+
+                <Botones />
             </div>
         </div>
     );

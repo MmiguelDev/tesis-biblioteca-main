@@ -12,10 +12,10 @@ export default function Inicio() {
                         sobe esta web.
                     </p>
                     <a
-                        href="/documentacion"
+                        href="/docs"
                         className="inline-block bg-white text-teal-500 py-3 px-10 rounded-full text-xl font-medium hover:bg-teal-100 transition-colors"
                     >
-                        Comienzar
+                        Comenzar
                     </a>
                 </div>
             </section>
