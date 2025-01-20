@@ -7,7 +7,7 @@ import Docs from "../pages/DocsPage";
 export default function Botones() {
     // Estado para controlar si el botón está abierto o cerrado
     const [isTutorialOpen, setIsTutorialOpen] = useState(false);
-    const [isDocsOpen, setIsDocsOpen] = useState(flase);
+    const [isDocsOpen, setIsDocsOpen] = useState(false);
 
     // Manejo del evento de click en el botón
     const handleChangeTutorial = () => {
@@ -23,7 +23,7 @@ export default function Botones() {
             <section className="p-10 bg-slate-300 mt-10">
                     <h2 className="text-center text-lg font-semibold text-slate-900">Leer más...</h2>
                     <div className="m-5 flex">
-                        <button className="p-2 bg-lime-700 hover:bg-lime-800 rounded-lg text-white flex"
+                        <button className="p-2 bg-lime-700 hover:bg-lime-800 rounded-lg text-white flex m-2"
                                 onClick={handleChangeTutorial}>
                             ¿Cómo utilizar "DB Biblioteca"?
 
@@ -35,7 +35,7 @@ export default function Botones() {
                                 )
                             }
                         </button>
-                        <button className="p-2 bg-lime-700 hover:bg-lime-800 rounded-lg text-white flex"
+                        <button className="p-2 bg-lime-700 hover:bg-lime-800 rounded-lg text-white flex m-2"
                                 onClick={handleChangeDocs}>
                             Leer documentación del código
 
@@ -51,6 +51,10 @@ export default function Botones() {
                 </section>
                 {
                     isTutorialOpen && (
+                        <Tutorial />
+                    )
+                } {
+                    isDocsOpen && (
                         <Docs />
                     )
                 }
