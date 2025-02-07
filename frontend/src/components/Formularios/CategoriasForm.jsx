@@ -8,8 +8,8 @@ function CategoriasForm({
   notificacion,
   error,
 }) {
-  return (
-    <div className="max-w-lg mx-auto bg-white/[0.005] bg-[#c7ccd4] p-6 rounded-lg shadow-xl">
+  return (  
+    <div className="max-w-lg mx-auto bg-white/[0.005] bg-[#eeeeee] p-6 rounded-lg shadow-2xl">
       <form className="grid grid-cols-1 gap-4" onSubmit={handleSubmit}>
         {/* Nombre de la categoría */}
         <div>
@@ -23,7 +23,7 @@ function CategoriasForm({
             type="text"
             id="categoria"
             placeholder="Nombre de la categoría"
-            className="mt-1 w-full rounded-md px-3 py-1 text-gray-900 bg-white shadow-sm focus:ring-2 focus:ring-slate-200"
+            className="mt-1 w-full rounded-md px-3 py-1 text-gray-950 bg-[#ffffff]  shadow-sm focus:ring-2 focus:ring-slate-200"
             value={categoriaSeleccionada}
             onChange={(e) => setCategoriaSeleccionada(e.target.value)}
           />

@@ -22,7 +22,7 @@ function LibrosForm({
   error,
 }) {
   return (
-    <div className="max-w-4xl mx-auto bg-white/[0.005] bg-[#c7ccd4] p-6 rounded-lg shadow-xl">
+    <div className="max-w-4xl mx-auto bg-white/[0.005] bg-[#eeeeee] p-6 rounded-lg shadow-2xl">
       <form
         className="grid grid-cols-1 md:grid-cols-2 gap-4"
         onSubmit={handleSubmit}

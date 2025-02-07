@@ -25,3 +25,6 @@
 3.- Agregar la información sobre los softwares que envíe angélica  en:
     tesis-biblioteca-main\frontend\src\documentacion\Documentacion.jsx
     a partir de la linea 94 (reemplazar la que ya está)
+
+
+/// DOCS EN UN PROYECTO DIFERENTE

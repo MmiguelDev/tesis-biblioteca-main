@@ -1,6 +1,6 @@
 import { FiBook, FiList } from "react-icons/fi";
 import { BsFillPeopleFill } from "react-icons/bs";
-import { MdNoteAdd } from "react-icons/md";
+import { MdNoteAdd, MdOutlinePeople } from "react-icons/md";
 import { TbCategory, TbCategoryPlus, TbBook2, TbBook, } from "react-icons/tb";
 
 export const Menus = [
@@ -19,10 +19,10 @@ export const Menus = [
         path: "/libros",
       },
       {
-        name: "Añadir Registro",
-        desc: "Añadir un registro",
-        icon: FiList,
-        path: "/agregar-registro",
+        name: "Añadir Libro",
+        desc: "Añadir un libro",
+        icon: MdNoteAdd,
+        path: "/agregar-libro",
       },
       {
         name: "Autores",
@@ -30,11 +30,10 @@ export const Menus = [
         icon: BsFillPeopleFill,
         path: "/autores",
       },
-      {
-        name: "Añadir Libro",
-        desc: "Añadir un libro",
-        icon: MdNoteAdd,
-        path: "/agregar-libro",
+      {name: "Añadir Autores",
+        desc: "Añadir un autor",
+        icon: MdOutlinePeople,
+        path: "/agregar-autores",
       },
       {
         name: "Categorias",
@@ -59,6 +58,18 @@ export const Menus = [
         desc: "Añadir una Editorial",
         icon: TbBook2,
         path: "/agregar-editoriales",
+      },
+      {
+        name: "Registros",
+        desc: "Listado de Prestamos",
+        icon: FiList,
+        path: "/registros",
+      },
+      {
+        name: "Añadir Registro",
+        desc: "Añadir un registro",
+        icon: FiList,
+        path: "/agregar-registro",
       },
     ],
     gridCols: 2,

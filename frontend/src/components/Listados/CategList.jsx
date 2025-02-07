@@ -28,15 +28,15 @@ const CategList = () => {
   if (error) return <p className="text-center text-red-500">{error}</p>;
 
   return (
-    <div className="p-4">
+    <div className="max-w-4xl mx-auto p-6 bg-white shadow-2xl rounded-lg mt-9 mb-6">
       {categorys.map((category) => (
         <div
           key={category.id}
-          className="p-4 mt-2 bg-white shadow rounded-md flex justify-between items-center border-b border-gray-300 py-4"
+          className="p-4 mt-2 flex justify-between items-center border-b border-gray-300 py-4"
         >
-          {/* Lado izquierdo: Título*/}
-          <div className="text-left">
-            <h2 className="text-lg font-semibold text-gray-800">
+          {/* Texto : Título*/}
+          <div className="text-center">
+            <h2 className="text-lg font-semibold text-gray-800 shadow-2xl">
               {category.nombre}
             </h2>
           </div>

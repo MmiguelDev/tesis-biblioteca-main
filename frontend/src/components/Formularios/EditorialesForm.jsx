@@ -9,7 +9,7 @@ const EditorialesForm = ({
     error,
 }) => {
     return (
-        <div className="max-w-lg mx-auto bg-white/[0.005] bg-[#c7ccd4] p-6 rounded-lg shadow-xl">
+        <div className="max-w-lg mx-auto bg-white/[0.005] bg-[#eeeeee] p-6 rounded-lg shadow-2xl">
             <form className="grid grid-cols-1 gap-4" onSubmit={handleSubmit}>
                 {/* Nombre de la editorial */}
                 <div>
