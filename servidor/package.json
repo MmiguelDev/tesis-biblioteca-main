@@ -7,7 +7,7 @@
     "dev": "nodemon src/index.js",
     "start": "node src/index.js"
   },
-  "author": "Juan",
+  "author": "Miguel",
   "license": "ISC",
   "description": "",
   "dependencies": {
