@@ -3,15 +3,13 @@ import SearchInv from "../components/SearchInv";
 import React, { useState, useEffect } from "react";
 
 export default function Inventario() {
-  /* Aquí va el código que estaba en el componente SearchInv */
   const [filtro, setFiltro] = useState("autores");
   const [opciones, setOpciones] = useState([]);
   const [busqueda, setBusqueda] = useState("");
   const [seleccion, setSeleccion] = useState("");
-  const [resultado, setResultado] = useState([]);
+  const [resultado, setResultado] = useState([]); // Inicializado como array vacío
   const [loading, setLoading] = useState(false);
 
-  /* Aquí va el código que estaba en el componente InventarioPage */
   useEffect(() => {
     const fetchOpciones = async () => {
       try {
@@ -25,7 +23,6 @@ export default function Inventario() {
     fetchOpciones();
   }, [filtro]);
 
-  /* Aquí va el código que estaba en el componente SearchInv */
   const realizarBusqueda = async () => {
     try {
       setLoading(true);
@@ -36,9 +33,10 @@ export default function Inventario() {
       );
       const { data } = await response.json();
       console.log(data);
-      setResultado(data);
+      setResultado(data || []); // Si data es undefined o null, usa un array vacío
     } catch (error) {
       console.error("Error al realizar búsqueda:", error);
+      setResultado([]); // En caso de error, asegúrate de que resultado sea un array vacío
     } finally {
       setLoading(false);
     }
@@ -59,7 +57,13 @@ export default function Inventario() {
         seleccion={seleccion}
         setSeleccion={setSeleccion}
       />
-      <SearchList libros={resultado} />
+      {loading ? (
+        <p>Cargando...</p>
+      ) : Array.isArray(resultado) && resultado.length > 0 ? (
+        <SearchList libros={resultado} />
+      ) : (
+        <p>No se encontraron coincidencias.</p>
+      )}
     </div>
   );
 }

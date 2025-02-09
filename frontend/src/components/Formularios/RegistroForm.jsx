@@ -101,29 +101,6 @@ function RegistroForm({
           />
         </div>
 
-        {/* Entregado */}
-        <div className="sm:col-span-2">
-          <label
-            htmlFor="idEntregado"
-            className="block text-sm font-medium text-gray-900 mb-1"
-          >
-            Entregado:
-          </label>
-          <select
-            id="idEntregado"
-            className="w-full px-3 py-1.5 text-gray-900 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-slate-200"
-            value={idEntregado}
-            onChange={(event) => setIdEntregado(event.target.value)}
-          >
-            <option value="">Seleccione una opción</option>
-            {entregados.map((entregado) => (
-              <option key={entregado.id} value={entregado.id}>
-                {entregado.estado == 0 ? "No" : "Sí"}
-              </option>
-            ))}
-          </select>
-        </div>
-
         {/* Botón de Guardar */}
         <div className="col-span-4">
           <button

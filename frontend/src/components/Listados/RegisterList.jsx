@@ -28,70 +28,6 @@ export default function RegisterList() {
     fetchRegister();
   }, []);
 
-  /* Función para manejar la edición del registro */
-  const handleEdit = (id) => {
-    console.log("Editar préstamo con id:", id);
-    // Aquí iría la lógica para editar el préstamo
-    const isConfirmed = window.confirm(
-      "¿Estás seguro de que deseas editar este préstamo?"
-    );
-
-    if (isConfirmed) {
-      fetch(`http://localhost:5000/api/registros/edit/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((response) => {
-          if (response.ok) {
-            setRegisters((prevPrestamos) =>
-              prevPrestamos.map((prestamo) =>
-                prestamo.id === id ? { ...prestamo, id_entregado } : prestamo
-              )
-            );
-            alert("Registro editado exitosamente.");
-          } else {
-            alert("Hubo un error al editar el registro.");
-          }
-        })
-        .catch((error) => {
-          console.error("Error al editar el registro:", error);
-          alert("Hubo un problema al editar el registro.");
-        });
-    }
-  };
-
-  /* Función para manejar la eliminación del registro */
-  const handleDelete = (id) => {
-    const isConfirmed = window.confirm(
-      "¿Estás seguro de que deseas eliminar este préstamo?"
-    );
-
-    if (isConfirmed) {
-      fetch(`http://localhost:5000/api/registros/delete/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((response) => {
-          if (response.ok) {
-            setRegisters((prevPrestamos) =>
-              prevPrestamos.filter((prestamo) => prestamo.id !== id)
-            );
-            alert("Registro eliminado exitosamente.");
-          } else {
-            alert("Hubo un error al eliminar el registro.");
-          }
-        })
-        .catch((error) => {
-          console.error("Error al eliminar el registro:", error);
-          alert("Hubo un problema al eliminar el registro.");
-        });
-    }
-  };
-
   if (loading) return <p className="text-center text-gray-500">Cargando...</p>;
   if (error) return <p className="text-center text-red-500">{error}</p>
 
@@ -121,21 +57,6 @@ export default function RegisterList() {
               </p>
             </div>
 
-            {/* Botones de acción */}
-            <div className="flex space-x-4">
-              <button
-                onClick={() => handleEdit(registro.id)}
-                className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-              >
-                Editar
-              </button>
-              <button
-                onClick={() => handleDelete(registro.id)}
-                className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
-              >
-                Eliminar
-              </button>
-            </div>
           </li>
         ))}
       </ul>

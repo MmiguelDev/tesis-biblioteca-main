@@ -35,7 +35,7 @@ app.use("*", (req, res) => {
   res.send("Hello World!");
 });
 
-/* Escuchamos el servidor con Socket.io */
+
 app.listen(port, () => {
   console.log("Server is running on: " + port);
 });

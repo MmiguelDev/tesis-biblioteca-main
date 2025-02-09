@@ -1,6 +1,36 @@
 /* Importar Base de datos */
 import { pool } from '../db/db.js'
 
+/* Modulo para editar una entrega */
+export const editEntrega = async (req, res) => {
+  try {
+    const {id} = req.params
+    const { entregado } = req.body;
+
+    const [resultados] = await pool.query("SELECT * FROM entregados WHERE id = ?", [
+      id, 
+    ]);
+
+    if (resultados.length === 0)
+      return res.status(404).json({ message: "El registro no se ha encontrado" });
+
+    const [result] = await pool.query(
+      `UPDATE entregados 
+      SET entregado = ?
+      WHERE id = ?`,
+      [entregado, id]
+    );
+
+    res.json({
+      id: result.insertId,
+      entregado
+    }).status(201);
+
+  } catch (err) {
+    return res.status(500).json({ message: error.message });
+  }
+}
+
 /* Modulo de editar un alumno */
 export const editAlumno = async (req, res) => {
   try {
@@ -145,6 +175,36 @@ export const editAutor = async (req, res) => {
       id: result.insertId,
       nombre, apellido
     }).status(201);
+
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+/* Modulo para ediar un registro */
+export const editRegistro  = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { id_entregado } = req.body
+
+    const [resultado] = await pool.query("SELECT * FROM registros WHERE id = ?", [
+      id,
+    ]);
+
+    if (resultado.length === 0) // <-- Aquí debería ser resultado, no result
+  return res.status(404).json({ message: "No se encontró el registro" });
+
+    const [result] = await pool.query(
+      `UPDATE registros
+      SET id_entregado = ?
+      WHERE id = ?`,
+      [id_entregado, id]
+    );
+    
+    res.status(200).json({
+      id: id, // Usar el ID que ya tienes
+      id_entregado: id_entregado
+    });
 
   } catch (error) {
     return res.status(500).json({ message: error.message });

@@ -18,6 +18,7 @@ export default function AgregarRegistros() {
   const [alumnos, setAlumnos] = useState([]);
   const [libros, setLibros] = useState([]);
   const [entregados, setEntregados] = useState([]);
+  const [registros, setRegistros] = useState([]); // Estado para la lista de registros
   const [notification, setNotification] = useState("");
   const [error, setError] = useState("");
 
@@ -43,20 +44,27 @@ export default function AgregarRegistros() {
         const responseEntregados = await fetch(
           "http://localhost:5000/api/entregados/gets"
         );
+        const responseRegistros = await fetch(
+          "http://localhost:5000/api/registros"
+        );
 
         if (
-          !responseAlumnos.ok &&
-          !responseLibros.ok &&
-          !responseEntregados.ok
+          !responseAlumnos.ok ||
+          !responseLibros.ok ||
+          !responseEntregados.ok ||
+          !responseRegistros.ok
         ) {
           throw new Error("Error al obtener los datos");
         }
+
         const { result } = await responseAlumnos.json();
         setAlumnos(result);
         const { result: resultLibros } = await responseLibros.json();
         setLibros(resultLibros);
         const { result: resultEntregados } = await responseEntregados.json();
         setEntregados(resultEntregados);
+        const { result: resultRegistros } = await responseRegistros.json();
+        setRegistros(resultRegistros);
       } catch (err) {
         setError(err.message);
       }
@@ -65,7 +73,7 @@ export default function AgregarRegistros() {
   }, []);
 
   /* Guardar los datos en la base de datos */
-  const guardarRegistro = (e) => {
+  const guardarRegistro = async (e) => {
     e.preventDefault();
     const nuevoRegistro = {
       id_alumno: idAlumno,
@@ -75,25 +83,31 @@ export default function AgregarRegistros() {
       id_entregado: idEntregado,
     };
 
-    fetch(`http://localhost:5000/api/registros/add`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(nuevoRegistro),
-    })
-      .then((response) => {
-        if (response.ok) {
-          setNotification("true");
-        } else {
-          setNotification("error");
-        }
-        setTimeout(() => setNotification(""), 3000); // Notificación desaparece después de 3 segundos
-      })
-      .catch((error) => {
-        console.error("Error al guardar el registro:", error);
-        setNotification("Error al guardar el registro.");
+    try {
+      const response = await fetch(`http://localhost:5000/api/registros/add`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(nuevoRegistro),
       });
+
+      if (response.ok) {
+        setNotification("true");
+
+        // Obtener la lista actualizada de registros
+        const responseRegistros = await fetch("http://localhost:5000/api/registros");
+        const { result } = await responseRegistros.json();
+        setRegistros(result); // Actualizar el estado de registros
+      } else {
+        setNotification("error");
+      }
+    } catch (error) {
+      console.error("Error al guardar el registro:", error);
+      setNotification("Error al guardar el registro.");
+    } finally {
+      setTimeout(() => setNotification(""), 3000); // Notificación desaparece después de 3 segundos
+    }
   };
 
   return (
@@ -120,7 +134,7 @@ export default function AgregarRegistros() {
             notification={notification}
             error={error}
           />
-          <RegisterList />
+          <RegisterList registros={registros} />
         </div>
       )}
     </div>
